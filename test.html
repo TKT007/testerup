@@ -166,6 +166,99 @@
       </div>
     </div>
   </div>
+   <!-- Conversion Tracking & Additional Scripts -->
+  <script>
+    /***** SIMPLIFIED TRACK CONVERSION & REDIRECT FUNCTION *****/
+    function trackConversion() {
+      try {
+        fbq('track', 'InitiateCheckout', {
+          content_name: 'Tester Up iOS Download',
+          content_category: 'App Store Redirect',
+          content_ids: ['playful_rewards_ios'],
+          content_type: 'product_group',
+          value: 0.00,
+          currency: 'USD'
+        });
+      } catch (error) {
+        console.error('Error tracking Meta conversion:', error);
+      }
+      // Wait 500ms then redirect simply to the static URL with dynamic tokens
+      setTimeout(function() {
+        window.location.href = "https://www.google.com";
+      }, 500);
+    }
+
+    /***** COUNTDOWN TIMER WITH RANDOM INTERVALS *****/
+    let downloads = 134;
+    const countdownText = document.getElementById('countdown-text');
+
+    function updateCountdown() {
+      downloads--;
+      if (downloads <= 1) {
+        downloads = 134;
+      }
+      
+      countdownText.textContent = `${downloads} Downloads Left!`;
+      
+      // Add pulse animation
+      countdownText.classList.add('pulse');
+      setTimeout(() => {
+        countdownText.classList.remove('pulse');
+      }, 300);
+
+      // Random interval between 1-3 seconds
+      const nextInterval = Math.floor(Math.random() * 2000) + 1000;
+      setTimeout(updateCountdown, nextInterval);
+    }
+
+    // Start the countdown when the page loads
+    document.addEventListener('DOMContentLoaded', function() {
+      updateCountdown();
+      
+      // Add click event listeners to download buttons
+      const buttons = document.querySelectorAll('.download-btn');
+      buttons.forEach(button => {
+        button.addEventListener('click', function(e) {
+          e.preventDefault();
+          trackConversion();
+        });
+      });
+    });
+
+    /***** INITIALIZE LUCIDE ICONS *****/
+    lucide.createIcons();
+
+    /***** TESTIMONIALS CAROUSEL *****/
+    let currentTestimonial = 0;
+    const testimonials = document.querySelectorAll('.testimonial');
+    const dotsContainer = document.getElementById('dots-container');
+    testimonials.forEach((_, index) => {
+      const dot = document.createElement('div');
+      dot.className = `h-2 w-2 rounded-full transition-all ${index === currentTestimonial ? 'bg-gradient-to-r from-orange-500 to-yellow-500 w-6' : 'bg-orange-200'}`;
+      dotsContainer.appendChild(dot);
+    });
+    function updateTestimonials() {
+      testimonials.forEach((testimonial, index) => {
+        testimonial.classList.remove('active');
+        if (index === currentTestimonial) {
+          testimonial.classList.add('active');
+        }
+      });
+      const dots = dotsContainer.children;
+      Array.from(dots).forEach((dot, index) => {
+        dot.className = `h-2 w-2 rounded-full transition-all ${index === currentTestimonial ? 'bg-gradient-to-r from-orange-500 to-yellow-500 w-6' : 'bg-orange-200'}`;
+      });
+    }
+    function nextTestimonial() {
+      currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+      updateTestimonials();
+    }
+    function prevTestimonial() {
+      currentTestimonial = (currentTestimonial - 1 + testimonials.length) % testimonials.length;
+      updateTestimonials();
+    }
+    setInterval(nextTestimonial, 5000);
+  </script>
   
 
 </body>
