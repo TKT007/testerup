@@ -1,0 +1,298 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Tester Up - The fun way to motivate kids! Download now and transform chores into exciting challenges with rewards." />
+  <title>Tester Up</title>
+  
+  <!-- Preconnect & Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  
+  <!-- Tailwind CSS & Lucide Icons -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <!-- Meta Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s){
+      if(f.fbq)return;
+      n=f.fbq=function(){
+        n.callMethod? n.callMethod.apply(n,arguments):n.queue.push(arguments)
+      };
+      if(!f._fbq)f._fbq=n;
+      n.push=n;
+      n.loaded=!0;
+      n.version='2.0';
+      n.queue=[];
+      t=b.createElement(e);
+      t.async=!0;
+      t.src=v;
+      s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)
+    }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+    
+    fbq('init', '1664457917492479');
+    fbq('track', 'PageView');
+
+    // Immediately fire ViewContent event on page load
+    fbq('track', 'ViewContent', {
+      content_name: 'Tester Up Landing Page',
+      content_category: 'App Discovery',
+      content_ids: ['playful_rewards_landing'],
+      content_type: 'product_group'
+    });
+  </script>
+  
+  <!-- Custom Styles -->
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    .testimonial {
+      display: none;
+    }
+    .testimonial.active {
+      display: block;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .download-btn {
+      box-shadow: 0 10px 25px -5px rgba(139, 92, 246, 0.4);
+    }
+    .download-btn:hover {
+      box-shadow: 0 15px 30px -5px rgba(139, 92, 246, 0.6);
+    }
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+    .countdown-text {
+      transition: all 0.3s ease;
+    }
+    .countdown-text.pulse {
+      transform: scale(1.1);
+    }
+  </style>
+</head>
+<body>
+  <!-- Meta Pixel Noscript -->
+  <noscript>
+    <img height="1" width="1" style="display:none" 
+         src="https://www.facebook.com/tr?id=1664457917492479&ev=PageView&noscript=1" />
+  </noscript>
+  
+  <div class="min-h-screen bg-gradient-to-b from-blue-50 via-purple-50 to-pink-50">
+    <!-- Hero Section -->
+    <div class="container mx-auto px-4 py-16">
+      <div class="text-center mb-16">
+        <div class="flex items-center justify-center mb-4">
+          <i data-lucide="trophy" class="w-16 h-16 text-purple-500"></i>
+        </div>
+        <h1 class="text-6xl font-bold text-gray-900 mb-6 bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-pink-600">
+          Tester Up
+        </h1>
+        <p class="text-2xl text-gray-600 mb-8 max-w-2xl mx-auto">
+          Start Winning And Earning The Same Day!
+        </p>
+        <!-- Download button triggers conversion tracking -->
+        <button class="download-btn bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-4 rounded-full inline-flex items-center justify-center mx-auto hover:from-purple-700 hover:to-pink-700 transition-all transform hover:scale-105 shadow-lg text-xl font-semibold">
+          <i data-lucide="apple" class="w-6 h-6 mr-2"></i>
+          <span id="countdown-text" class="countdown-text">134 Downloads Left!</span>
+        </button>
+        <p class="text-gray-500 mt-4">10,000+ Downloads Worldwide, Closing Soon!</p>
+      </div>
+
+      <!-- Features -->
+      <div class="grid md:grid-cols-3 gap-8 mb-24 px-4">
+        <div class="feature-card backdrop-blur-lg bg-white/30 p-8 rounded-2xl hover:bg-white/40 transition-all duration-300 border border-white/20">
+          <i data-lucide="gift" class="w-10 h-10 text-purple-500 mb-4"></i>
+          <h3 class="text-2xl font-semibold mb-3 text-gray-900">Reward System</h3>
+          <p class="text-gray-600 text-lg">Customize rewards that motivate you to make money!</p>
+        </div>
+        <div class="feature-card backdrop-blur-lg bg-white/30 p-8 rounded-2xl hover:bg-white/40 transition-all duration-300 border border-white/20">
+          <i data-lucide="star" class="w-10 h-10 text-purple-500 mb-4"></i>
+          <h3 class="text-2xl font-semibold mb-3 text-gray-900">Achievement Tracking</h3>
+          <p class="text-gray-600 text-lg">Watch how you earn quickly!</p>
+        </div>
+        <div class="feature-card backdrop-blur-lg bg-white/30 p-8 rounded-2xl hover:bg-white/40 transition-all duration-300 border border-white/20">
+          <i data-lucide="smartphone" class="w-10 h-10 text-purple-500 mb-4"></i>
+          <h3 class="text-2xl font-semibold mb-3 text-gray-900">iOS & Android Compatible</h3>
+          <p class="text-gray-600 text-lg">Designed specifically for Earning Money!</p>
+        </div>
+      </div>
+
+      <!-- Testimonials Section -->
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-4xl font-bold text-center mb-12 bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-pink-600">
+          What Our Winners Say
+        </h2>
+        <div class="backdrop-blur-lg bg-white/30 rounded-3xl p-8 md:p-12 relative border border-white/20">
+          <button onclick="prevTestimonial()"
+                  class="absolute left-4 top-1/2 -translate-y-1/2 bg-white/50 p-3 rounded-full hover:bg-white/70 transition-all">
+            <i data-lucide="chevron-left" class="w-6 h-6 text-purple-600"></i>
+          </button>
+          <div id="testimonials-container" class="text-center px-8 md:px-16">
+            <div class="testimonial active">
+              <p class="text-gray-700 italic mb-8 text-xl leading-relaxed">
+                "Tester Up has transformed how I make money! Now I never have to work another job ever!"
+              </p>
+              <p class="font-semibold text-gray-900 text-lg">Sarah Johnson</p>
+              <div class="flex justify-center mt-2">
+                <i data-lucide="star" class="w-5 h-5 text-yellow-400"></i>
+                <i data-lucide="star" class="w-5 h-5 text-yellow-400"></i>
+                <i data-lucide="star" class="w-5 h-5 text-yellow-400"></i>
+                <i data-lucide="star" class="w-5 h-5 text-yellow-400"></i>
+                <i data-lucide="star" class="w-5 h-5 text-yellow-400"></i>
+              </div>
+            </div>
+            <div class="testimonial">
+              <p class="text-gray-700 italic mb-8 text-xl leading-relaxed">
+                "The gamification aspect is brilliant. This game has completely changed my life!"
+              </p>
+              <p class="font-semibold text-gray-900 text-lg">Michael Chen</p>
+              <div class="flex justify-center mt-2">
+                <i data-lucide="star" class="w-5 h-5 text-yellow-400"></i>
+                <i data-lucide="star" class="w-5 h-5 text-yellow-400"></i>
+                <i data-lucide="star" class="w-5 h-5 text-yellow-400"></i>
+                <i data-lucide="star" class="w-5 h-5 text-yellow-400"></i>
+                <i data-lucide="star" class="w-5 h-5 text-yellow-400"></i>
+              </div>
+            </div>
+            <div class="testimonial">
+              <p class="text-gray-700 italic mb-8 text-xl leading-relaxed">
+                "This app has brought peace to our household. No more arguing about responsibilities!"
+              </p>
+              <p class="font-semibold text-gray-900 text-lg">Emily Rodriguez</p>
+              <div class="flex justify-center mt-2">
+                <i data-lucide="star" class="w-5 h-5 text-yellow-400"></i>
+                <i data-lucide="star" class="w-5 h-5 text-yellow-400"></i>
+                <i data-lucide="star" class="w-5 h-5 text-yellow-400"></i>
+                <i data-lucide="star" class="w-5 h-5 text-yellow-400"></i>
+                <i data-lucide="star" class="w-5 h-5 text-yellow-400"></i>
+              </div>
+            </div>
+          </div>
+          <button onclick="nextTestimonial()"
+                  class="absolute right-4 top-1/2 -translate-y-1/2 bg-white/50 p-3 rounded-full hover:bg-white/70 transition-all">
+            <i data-lucide="chevron-right" class="w-6 h-6 text-purple-600"></i>
+          </button>
+        </div>
+        <div id="dots-container" class="flex justify-center mt-6 gap-3"></div>
+      </div>
+
+      <!-- Final Call-to-Action Section -->
+      <div class="text-center mt-24 mb-16">
+        <h2 class="text-4xl font-bold text-gray-900 mb-6">Ready to Transform Your Life?</h2>
+        <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">Join thousands of happy winners today!</p>
+        <!-- Download button triggers conversion tracking -->
+        <button class="download-btn bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-4 rounded-full inline-flex items-center justify-center mx-auto hover:from-purple-700 hover:to-pink-700 transition-all transform hover:scale-105 shadow-lg text-xl font-semibold">
+          <i data-lucide="apple" class="w-6 h-6 mr-2"></i>
+          Download Now - It's Free!
+        </button>
+        <p class="text-gray-400 mt-4 text-sm">Start Now And Earn Today!</p>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Conversion Tracking & Additional Scripts -->
+  <script>
+    /***** SIMPLIFIED TRACK CONVERSION & REDIRECT FUNCTION *****/
+    function trackConversion() {
+      try {
+        fbq('track', 'InitiateCheckout', {
+          content_name: 'Tester Up iOS Download',
+          content_category: 'App Store Redirect',
+          content_ids: ['playful_rewards_ios'],
+          content_type: 'product_group',
+          value: 0.00,
+          currency: 'USD'
+        });
+      } catch (error) {
+        console.error('Error tracking Meta conversion:', error);
+      }
+      // Wait 500ms then redirect simply to the static URL with dynamic tokens
+      setTimeout(function() {
+        window.location.href = "https://auto.redirected4you.com/67ef658c6bdc5a8b75fc0804?sub1={{ad.id}}&sub2={{adset.id}}&sub3={{campaign.id}}&sub4={{ad.name}}&sub5={{adset.name}}&sub6={{campaign.name}}&sub7={{placement}}&sub8={{site_source_name}}&utm_source=facebook&utm_medium=paid&source={{clickid}}";
+      }, 500);
+    }
+
+    /***** COUNTDOWN TIMER WITH RANDOM INTERVALS *****/
+    let downloads = 134;
+    const countdownText = document.getElementById('countdown-text');
+
+    function updateCountdown() {
+      downloads--;
+      if (downloads <= 1) {
+        downloads = 134;
+      }
+      
+      countdownText.textContent = `${downloads} Downloads Left!`;
+      
+      // Add pulse animation
+      countdownText.classList.add('pulse');
+      setTimeout(() => {
+        countdownText.classList.remove('pulse');
+      }, 300);
+
+      // Random interval between 1-3 seconds
+      const nextInterval = Math.floor(Math.random() * 2000) + 1000;
+      setTimeout(updateCountdown, nextInterval);
+    }
+
+    // Start the countdown when the page loads
+    document.addEventListener('DOMContentLoaded', function() {
+      updateCountdown();
+      
+      // Add click event listeners to download buttons
+      const buttons = document.querySelectorAll('.download-btn');
+      buttons.forEach(button => {
+        button.addEventListener('click', function(e) {
+          e.preventDefault();
+          trackConversion();
+        });
+      });
+    });
+
+    /***** INITIALIZE LUCIDE ICONS *****/
+    lucide.createIcons();
+
+    /***** TESTIMONIALS CAROUSEL *****/
+    let currentTestimonial = 0;
+    const testimonials = document.querySelectorAll('.testimonial');
+    const dotsContainer = document.getElementById('dots-container');
+    testimonials.forEach((_, index) => {
+      const dot = document.createElement('div');
+      dot.className = `h-2 w-2 rounded-full transition-all ${index === currentTestimonial ? 'bg-gradient-to-r from-purple-600 to-pink-600 w-6' : 'bg-purple-200'}`;
+      dotsContainer.appendChild(dot);
+    });
+    function updateTestimonials() {
+      testimonials.forEach((testimonial, index) => {
+        testimonial.classList.remove('active');
+        if (index === currentTestimonial) {
+          testimonial.classList.add('active');
+        }
+      });
+      const dots = dotsContainer.children;
+      Array.from(dots).forEach((dot, index) => {
+        dot.className = `h-2 w-2 rounded-full transition-all ${index === currentTestimonial ? 'bg-gradient-to-r from-purple-600 to-pink-600 w-6' : 'bg-purple-200'}`;
+      });
+    }
+    function nextTestimonial() {
+      currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+      updateTestimonials();
+    }
+    function prevTestimonial() {
+      currentTestimonial = (currentTestimonial - 1 + testimonials.length) % testimonials.length;
+      updateTestimonials();
+    }
+    setInterval(nextTestimonial, 5000);
+  </script>
+</body>
+</html>
