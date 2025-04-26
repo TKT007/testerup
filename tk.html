@@ -336,70 +336,7 @@
     }
     setInterval(nextTestimonial, 5000);
   </script>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  // Função para obter parâmetros da URL
-  function getUrlParameter(name) {
-    name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
-    var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
-    var results = regex.exec(location.search);
-    return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
-  }
 
-  // Capturar o parâmetro 'source' da URL atual
-  var sourceParam = getUrlParameter('source');
-  
-  // Se existir um parâmetro source
-  if (sourceParam) {
-    // Função para modificar um link individual
-    function modifyLink(link) {
-      var href = link.getAttribute('href');
-      
-      // Verificar se é um link válido (http/https)
-      if (href && (href.startsWith('http://') || href.startsWith('https://'))) {
-        // Criar objeto URL para manipulação mais fácil
-        try {
-          var url = new URL(href);
-          
-          // Adicionar o parâmetro source se não existir
-          if (!url.searchParams.has('source')) {
-            url.searchParams.append('source', sourceParam);
-            link.setAttribute('href', url.toString());
-          }
-        } catch(e) {
-          console.error('Erro ao processar URL:', href);
-        }
-      }
-    }
-
-    // Modificar todos os links existentes na página
-    var links = document.querySelectorAll('a[href]');
-    links.forEach(modifyLink);
-    
-    // Observar mudanças no DOM para links dinâmicos (como em formulários AJAX)
-    var observer = new MutationObserver(function(mutations) {
-      mutations.forEach(function(mutation) {
-        mutation.addedNodes.forEach(function(node) {
-          if (node.nodeType === 1) { // Element node
-            if (node.tagName === 'A') {
-              modifyLink(node);
-            }
-            if (node.querySelectorAll) {
-              node.querySelectorAll('a[href]').forEach(modifyLink);
-            }
-          }
-        });
-      });
-    });
-
-    // Configurar e iniciar o observer
-    observer.observe(document.body, {
-      childList: true,
-      subtree: true
-    });
-  }
-});
-</script>
 
 
   
