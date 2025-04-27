@@ -356,17 +356,25 @@ document.addEventListener('DOMContentLoaded', function() {
     var downloadButtons = document.querySelectorAll('.download-btn');
     
     downloadButtons.forEach(function(button) {
+        // Verificar se já tem um evento de clique (para não substituir o existente)
+        var oldClick = button.onclick;
+        
         button.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            // Construir a URL final com o parâmetro source, se existir
-            var finalUrl = 'https://glstrck.com/aff_c?offer_id=1361&aff_id=88388';
+            // Se houver um parâmetro source, adiciona ao href atual do botão
             if (sourceParam) {
-                finalUrl += '&source=' + encodeURIComponent(sourceParam);
+                var href = button.getAttribute('href') || '';
+                var separator = href.includes('?') ? '&' : '?';
+                
+                // Atualiza o href apenas se não tiver já um parâmetro source
+                if (!href.includes('source=')) {
+                    button.setAttribute('href', href + separator + 'source=' + encodeURIComponent(sourceParam));
+                }
             }
             
-            // Redirecionar para a URL final
-            window.location.href = finalUrl;
+            // Mantém o comportamento original se existir
+            if (oldClick) {
+                oldClick.call(this, e);
+            }
         });
     });
 });
