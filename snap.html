@@ -291,7 +291,7 @@ snaptr('init', 'e077edb7-107d-4a06-bfa7-964259e23b22', {
 
 snaptr('track', 'PAGE_VIEW');
 
-// Function to track SIGN_UP events when Download Now buttons are clicked
+// Function to track START_CHECKOUT events when Download Now buttons are clicked
 function setupSignUpTracking() {
   // Get all Download Now buttons by their IDs or common class
   const downloadButtons = document.querySelectorAll('a[id$="_btn"][href*="glstrck.com"]');
@@ -299,11 +299,11 @@ function setupSignUpTracking() {
   // Add click event listener to each button
   downloadButtons.forEach(button => {
     button.addEventListener('click', function(e) {
-      // Track SIGN_UP event in Snapchat Pixel
+      // Track START_CHECKOUT event in Snapchat Pixel
       if (window.snaptr) {
-        console.log('Tracking SIGN_UP event in Snapchat Pixel');
-        snaptr('track', 'SIGN_UP', {
-          'sign_up_method': 'website_button'
+        console.log('Tracking START_CHECKOUT event in Snapchat Pixel');
+        snaptr('track', 'START_CHECKOUT', {
+          'START_CHECKOUT_method': 'website_button'
         });
       }
     });
