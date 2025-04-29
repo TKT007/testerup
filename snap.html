@@ -289,9 +289,9 @@ snaptr('init', 'e077edb7-107d-4a06-bfa7-964259e23b22', {
 'user_email': 'INSERT_USER_EMAIL'
 });
 
-snaptr('track', 'START_CHECKOUT');
+snaptr('track', 'PAGE_VIEW');
 
-// Function to track LEAD events when Download Now buttons are clicked
+// Function to track SIGN_UP events when Download Now buttons are clicked
 function setupSignUpTracking() {
   // Get all Download Now buttons by their IDs or common class
   const downloadButtons = document.querySelectorAll('a[id$="_btn"][href*="glstrck.com"]');
@@ -299,22 +299,40 @@ function setupSignUpTracking() {
   // Add click event listener to each button
   downloadButtons.forEach(button => {
     button.addEventListener('click', function(e) {
-      // Track LEAD event in Snapchat Pixel
+      // Track SIGN_UP event in Snapchat Pixel
       if (window.snaptr) {
-        console.log('Tracking LEAD event in Snapchat Pixel');
-        snaptr('track', 'LEAD', {
-          'LEAD_method': 'website_button'
+        console.log('Tracking SIGN_UP event in Snapchat Pixel');
+        snaptr('track', 'SIGN_UP', {
+          'sign_up_method': 'website_button'
         });
       }
     });
   });
 }
 
-// Run the setup function when the DOM is fully loaded
+// Track continue button clicks
+function setupContinueButtonTracking() {
+  var continueButton = document.getElementById('continue-button');
+  if (continueButton) {
+    continueButton.addEventListener('click', function() {
+      if (window.snaptr) {
+        snaptr('track', 'CUSTOM_EVENT', {
+          'custom_action': 'button_click_continue'
+        });
+      }
+    });
+  }
+}
+
+// Run setup functions when the DOM is fully loaded
 if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', setupSignUpTracking);
+  document.addEventListener('DOMContentLoaded', function() {
+    setupSignUpTracking();
+    setupContinueButtonTracking();
+  });
 } else {
   setupSignUpTracking();
+  setupContinueButtonTracking();
 }
 </script>
 <!-- End Snap Pixel Code -->
