@@ -276,49 +276,6 @@ if (document.readyState === 'complete' || document.readyState === 'interactive')
 }
 </script>
 
-<!-- Snapchat Pixel Base Code -->
-<script type="text/javascript">
-(function(e,t,n){if(e.snaptr)return;var a=e.snaptr=function(){
-a.handleRequest?a.handleRequest.apply(a,arguments):a.queue.push(arguments)};
-a.queue=[];var s='script';r=t.createElement(s);r.async=!0;
-r.src=n;var u=t.getElementsByTagName(s)[0];
-u.parentNode.insertBefore(r,u);})(window,document,
-'https://sc-static.net/scevent.min.js');
 
-snaptr('init', 'e077edb7-107d-4a06-bfa7-964259e23b22');   <!-- Replace with your real Pixel ID -->
-snaptr('track', 'PAGE_VIEW');
-</script>
-
-</head>
-<body>
-
-<h1>Welcome to the Landing Page!</h1>
-<p>Click below to continue:</p>
-
-<!-- Your CTA Button -->
-<button id="continue-button" style="padding: 15px 30px; font-size: 18px;">Continue</button>
-
-<!-- Combined tracking and redirect script -->
-<script type="text/javascript">
-document.addEventListener('DOMContentLoaded', function() {
-    var continueButton = document.getElementById('continue-button');
-    if (continueButton) {
-        continueButton.addEventListener('click', function() {
-            // Track LEAD event in Snapchat Pixel
-            if (window.snaptr) {
-                snaptr('track', 'LEAD', {
-                    'button_id': 'continue-button',
-                    'action': 'click'
-                });
-            }
-            
-            // Optional slight delay (for better pixel capture before leaving)
-            setTimeout(function() {
-                window.location.href = "https://tester-up.shop/thank-you.html"; // Change to your real thank-you page
-            }, 150); // 150ms delay
-        });
-    }
-});
-</script>
  
 </body></html>
