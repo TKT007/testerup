@@ -321,45 +321,39 @@ if (document.readyState === 'complete' || document.readyState === 'interactive')
     setupButtons();
 }
 </script>
- <!-- Snap Pixel Code -->
+<!-- Snap Pixel Code -->
 <script type='text/javascript'>
-(function(e,t,n){if(e.snaptr)return;var a=e.snaptr=function()
-{a.handleRequest?a.handleRequest.apply(a,arguments):a.queue.push(arguments)};
-a.queue=[];var s='script';r=t.createElement(s);r.async=!0;
-r.src=n;var u=t.getElementsByTagName(s)[0];
-u.parentNode.insertBefore(r,u);})(window,document,
-'https://sc-static.net/scevent.min.js');
-
-snaptr('init', 'e077edb7-107d-4a06-bfa7-964259e23b22', {
-'user_email': 'INSERT_USER_EMAIL'
-});
-
-snaptr('track', 'PAGE_VIEW');
-
-</script>
-
-<script>
- <!-- Add this script right after your existing Snapchat pixel code -->
-<script type="text/javascript">
-  // Find all Download Now buttons
+  (function(e,t,n){
+    if(e.snaptr)return;
+    var a=e.snaptr=function(){
+      a.handleRequest?a.handleRequest.apply(a,arguments):a.queue.push(arguments)
+    };
+    a.queue=[];
+    var s='script';
+    r=t.createElement(s);
+    r.async=!0;
+    r.src=n;
+    var u=t.getElementsByTagName(s)[0];
+    u.parentNode.insertBefore(r,u);
+  })(window,document,'https://sc-static.net/scevent.min.js');
+  
+  snaptr('init', 'e077edb7-107d-4a06-bfa7-964259e23b22', {'user_email': 'INSERT_USER_EMAIL'});
+  snaptr('track', 'PAGE_VIEW');
+  
+  // Adicionando rastreamento de PURCHASE para todos os botões
   document.addEventListener('DOMContentLoaded', function() {
-    var downloadButtons = document.querySelectorAll('a[href*="glstrck.com/aff_c"]');
+    // Seleciona todos os botões do site
+    var buttons = document.querySelectorAll('button, input[type="button"], input[type="submit"], a[role="button"]');
     
-    // Add click event listeners to each button
-    downloadButtons.forEach(function(button) {
-      button.addEventListener('click', function(e) {
-        // Track the purchase event
+    // Adiciona o event listener para cada botão
+    buttons.forEach(function(button) {
+      button.addEventListener('click', function() {
         snaptr('track', 'PURCHASE', {
-          'currency': 'USD',
-          'price': 0,  // Update with actual price if applicable
-          'transaction_id': 'download_' + Date.now()  // Creates unique ID for each transaction
+          
         });
-        
-        console.log('Snapchat purchase event tracked');
       });
     });
   });
-</script>
 </script>
 <!-- End Snap Pixel Code -->
 </body></html>
