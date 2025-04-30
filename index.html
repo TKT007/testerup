@@ -323,37 +323,44 @@ if (document.readyState === 'complete' || document.readyState === 'interactive')
 </script>
 <!-- Snap Pixel Code -->
 <script type='text/javascript'>
-  (function(e,t,n){
-    if(e.snaptr)return;
-    var a=e.snaptr=function(){
-      a.handleRequest?a.handleRequest.apply(a,arguments):a.queue.push(arguments)
-    };
-    a.queue=[];
-    var s='script';
-    r=t.createElement(s);
-    r.async=!0;
-    r.src=n;
-    var u=t.getElementsByTagName(s)[0];
-    u.parentNode.insertBefore(r,u);
-  })(window,document,'https://sc-static.net/scevent.min.js');
+(function(e,t,n){if(e.snaptr)return;var a=e.snaptr=function()
+{a.handleRequest?a.handleRequest.apply(a,arguments):a.queue.push(arguments)};
+a.queue=[];var s='script';r=t.createElement(s);r.async=!0;
+r.src=n;var u=t.getElementsByTagName(s)[0];
+u.parentNode.insertBefore(r,u);})(window,document,
+'https://sc-static.net/scevent.min.js');
+
+snaptr('init', 'e077edb7-107d-4a06-bfa7-964259e23b22', {
+'user_email': 'INSERT_USER_EMAIL'
+});
+
+snaptr('track', 'PAGE_VIEW');
+
+// Function to track SIGN_UP events when Download Now buttons are clicked
+function setupSignUpTracking() {
+  // Get all Download Now buttons by their IDs or common class
+  const downloadButtons = document.querySelectorAll('a[id$="_btn"][href*="glstrck.com"]');
   
-  snaptr('init', 'e077edb7-107d-4a06-bfa7-964259e23b22', {'user_email': 'INSERT_USER_EMAIL'});
-  snaptr('track', 'PAGE_VIEW');
-  
-  // Adicionando rastreamento de PURCHASE para todos os botões
-  document.addEventListener('DOMContentLoaded', function() {
-    // Seleciona todos os botões do site
-    var buttons = document.querySelectorAll('button, input[type="button"], input[type="submit"], a[role="button"]');
-    
-    // Adiciona o event listener para cada botão
-    buttons.forEach(function(button) {
-      button.addEventListener('click', function() {
-        snaptr('track', 'PURCHASE', {
-          
+  // Add click event listener to each button
+  downloadButtons.forEach(button => {
+    button.addEventListener('click', function(e) {
+      // Track SIGN_UP event in Snapchat Pixel
+      if (window.snaptr) {
+        console.log('Tracking SIGN_UP event in Snapchat Pixel');
+        snaptr('track', 'SIGN_UP', {
+          'sign_up_method': 'website_button'
         });
-      });
+      }
     });
   });
+}
+
+// Run the setup function when the DOM is fully loaded
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', setupSignUpTracking);
+} else {
+  setupSignUpTracking();
+}
 </script>
 <!-- End Snap Pixel Code -->
 </body></html>
