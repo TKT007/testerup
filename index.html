@@ -337,5 +337,29 @@ snaptr('init', 'e077edb7-107d-4a06-bfa7-964259e23b22', {
 snaptr('track', 'PAGE_VIEW');
 
 </script>
+
+<script>
+ <!-- Add this script right after your existing Snapchat pixel code -->
+<script type="text/javascript">
+  // Find all Download Now buttons
+  document.addEventListener('DOMContentLoaded', function() {
+    var downloadButtons = document.querySelectorAll('a[href*="glstrck.com/aff_c"]');
+    
+    // Add click event listeners to each button
+    downloadButtons.forEach(function(button) {
+      button.addEventListener('click', function(e) {
+        // Track the purchase event
+        snaptr('track', 'PURCHASE', {
+          'currency': 'USD',
+          'price': 0,  // Update with actual price if applicable
+          'transaction_id': 'download_' + Date.now()  // Creates unique ID for each transaction
+        });
+        
+        console.log('Snapchat purchase event tracked');
+      });
+    });
+  });
+</script>
+</script>
 <!-- End Snap Pixel Code -->
 </body></html>
