@@ -243,7 +243,6 @@
     </div>
     
 <script>
-    // Função para obter parâmetros da URL (caso precise no futuro)
     function getUrlParameter(name) {
         name = name.replace(/[\[\]]/g, '\\$&');
         const regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)');
@@ -253,10 +252,8 @@
         return decodeURIComponent(results[2].replace(/\+/g, ' '));
     }
 
-    // Construir o link de tracking SEM o parâmetro source
     const trackingLink = `https://getrewarrds.com/aff_c?offer_id=1421&aff_id=18892`;
     
-    // Atualizar o href do botão quando a página carregar
     document.addEventListener('DOMContentLoaded', function() {
         const ctaButton = document.querySelector('.cta-button');
         if (ctaButton) {
