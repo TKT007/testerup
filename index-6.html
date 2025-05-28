@@ -243,22 +243,8 @@
     </div>
     
 <script>
-    function getUrlParameter(name) {
-        name = name.replace(/[\[\]]/g, '\\$&');
-        const regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)');
-        const results = regex.exec(window.location.search);
-        if (!results) return null;
-        if (!results[2]) return '';
-        return decodeURIComponent(results[2].replace(/\+/g, ' '));
-    }
-
-    const trackingLink = `https://getrewarrds.com/aff_c?offer_id=1421&aff_id=18892`;
-    
     document.addEventListener('DOMContentLoaded', function() {
-        const ctaButton = document.querySelector('.cta-button');
-        if (ctaButton) {
-            ctaButton.href = trackingLink;
-        }
+        document.querySelector('.cta-button').href = "https://getrewarrds.com/aff_c?offer_id=110&aff_id=18892";
     });
 </script>
 
